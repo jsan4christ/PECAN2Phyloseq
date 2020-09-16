@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1588718587005.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "3045805D",
+    "lastKnownWriteTime" : 8246181276032328044,
+    "last_content_update" : 1588718587005,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "6B06B5DC",
+        "caption" : "taxa_table_final",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=taxa_table_final&cache_key=6B06B5DC",
+        "displayedObservations" : "11018",
+        "environment" : "",
+        "object" : "taxa_table_final",
+        "preview" : "0",
+        "totalObservations" : "11018",
+        "variables" : "7"
+    },
+    "relative_order" : 9,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1592900572861.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "1CD53F2C",
+    "lastKnownWriteTime" : 4294967302,
+    "last_content_update" : 1592900572861,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "77AC9CFA",
+        "caption" : "seqs_asvs",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=seqs_asvs&cache_key=77AC9CFA",
+        "displayedObservations" : 11018,
+        "environment" : "",
+        "object" : "seqs_asvs",
+        "preview" : 0,
+        "totalObservations" : 11018,
+        "variables" : 2
+    },
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

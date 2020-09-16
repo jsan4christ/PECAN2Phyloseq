@@ -1,0 +1,118 @@
+Using PECAN and SILVA taxonomies
+Using Valencia to assign samples to CSTs
+---Copying 7 abundance tables to this directory & combining
+---Performing chimera removal on merged tables and classifying amplicon sequence variants (ASVs)
+---Merged, chimera-removed abundance tables written to all_runs_dada2_abundance_table.csv
+---ASVs classified via silva written to silva_classification.csv
+---ASVs classified via RDP written to rdp_classification.csv
+---Final ASVs written to all_runs_dada2_ASV.fasta for classification via PECAN
+---dada2 completed successfully
+---Renaming dada2 files for project
+---Renaming SILVA classification file for project
+andile is the name of the project
+Part1 stats for all runs:
+/autofs/scratch/andile/andile_dada2_part1_concatenated_stats.txt
+
+Retrieving DADA2 stats from /autofs/scratch/andile/74139065_6
+Retrieving DADA2 stats from /autofs/scratch/andile/74967893_5
+Retrieving DADA2 stats from /autofs/scratch/andile/AubRun3_4
+Retrieving DADA2 stats from /autofs/scratch/andile/Jenn_3
+Retrieving DADA2 stats from /autofs/scratch/andile/runN_2
+Retrieving DADA2 stats from /autofs/scratch/andile/RunX_1
+Retrieving DADA2 stats from /autofs/scratch/andile/RunX_1b
+Complete DADA2 stats file:
+/autofs/scratch/andile/stats_file_cmp.txt
+
+---Classifying ASVs with V3V4 PECAN models (located in /local/projects-t2/jholm/PECAN/v1.0/V3V4/merged_models/)
+---Renaming ASVs in FASTA, abundance tables, and SILVA classification key.
+---Creating count table with SILVA classifications only
+---Using SILVA taxonomy
+---Writing condensed SILVA taxonomy to silva_condensed.txt
+---Combining taxonomic assignments of all source files (includes 11018 ASVs)
+---Combined taxonomy written for 11018 ASVs to cmb_tx.txt
+---Adding taxonomy to andile_all_runs_dada2_abundance_table.csv
+TOTAL ASVs: 11018
+Output written to andile_all_runs_dada2_abundance_table_SILVA_taxa-merged.csv
+---Creating count table with PECAN classifications
+---Using vaginal-specific merge rules for taxa
+---Combined taxonomy written for 11018 ASVs to andile_all_runs_dada2_abundance_table.csv
+---Adding taxonomy to andile_all_runs_dada2_abundance_table.csv
+TOTAL ASVs: 11018
+Output written to andile_all_runs_dada2_abundance_table_PECAN_taxa-merged.csv
+---Assigning CSTs with Valencia
+---Creating count table with SILVA+PECAN classifications
+---Using SILVA taxonomy
+Using PECAN taxonomy
+---Writing condensed SILVA taxonomy to silva_condensed.txt
+---Using SILVA taxonomy except for Lactobacillus and BV species (PECAN)
+---Combining taxonomic assignments of all source files (includes 11018 ASVs)
+---Combined taxonomy written for 11018 ASVs to cmb_tx.txt
+---Adding taxonomy to andile_all_runs_dada2_abundance_table.csv
+TOTAL ASVs: 11018
+Output written to andile_all_runs_dada2_abundance_table_SILVA-PECAN_taxa-merged.csv
+
+Creating report...
+Warning: FastQC files for forward reads in run 74139065_6 not found. Looked for:
+/autofs/scratch/andile/74139065_6/R1split/seqs_fastqc
+/autofs/scratch/andile/74139065_6/fwdSplit/seqs_fastqc
+
+Warning: FastQC files for reverse reads in run 74139065_6 not found. Looked for:
+/autofs/scratch/andile/74139065_6/R2split
+/autofs/scratch/andile/74139065_6/R4split
+/autofs/scratch/andile/74139065_6/revSplit
+
+Warning: FastQC files for forward reads in run 74967893_5 not found. Looked for:
+/autofs/scratch/andile/74967893_5/R1split/seqs_fastqc
+/autofs/scratch/andile/74967893_5/fwdSplit/seqs_fastqc
+
+Warning: FastQC files for reverse reads in run 74967893_5 not found. Looked for:
+/autofs/scratch/andile/74967893_5/R2split
+/autofs/scratch/andile/74967893_5/R4split
+/autofs/scratch/andile/74967893_5/revSplit
+
+Warning: FastQC files for forward reads in run AubRun3_4 not found. Looked for:
+/autofs/scratch/andile/AubRun3_4/R1split/seqs_fastqc
+/autofs/scratch/andile/AubRun3_4/fwdSplit/seqs_fastqc
+
+Warning: FastQC files for reverse reads in run AubRun3_4 not found. Looked for:
+/autofs/scratch/andile/AubRun3_4/R2split
+/autofs/scratch/andile/AubRun3_4/R4split
+/autofs/scratch/andile/AubRun3_4/revSplit
+
+Warning: FastQC files for forward reads in run Jenn_3 not found. Looked for:
+/autofs/scratch/andile/Jenn_3/R1split/seqs_fastqc
+/autofs/scratch/andile/Jenn_3/fwdSplit/seqs_fastqc
+
+Warning: FastQC files for reverse reads in run Jenn_3 not found. Looked for:
+/autofs/scratch/andile/Jenn_3/R2split
+/autofs/scratch/andile/Jenn_3/R4split
+/autofs/scratch/andile/Jenn_3/revSplit
+
+Warning: FastQC files for forward reads in run runN_2 not found. Looked for:
+/autofs/scratch/andile/runN_2/R1split/seqs_fastqc
+/autofs/scratch/andile/runN_2/fwdSplit/seqs_fastqc
+
+Warning: FastQC files for reverse reads in run runN_2 not found. Looked for:
+/autofs/scratch/andile/runN_2/R2split
+/autofs/scratch/andile/runN_2/R4split
+/autofs/scratch/andile/runN_2/revSplit
+
+Warning: FastQC files for forward reads in run RunX_1 not found. Looked for:
+/autofs/scratch/andile/RunX_1/R1split/seqs_fastqc
+/autofs/scratch/andile/RunX_1/fwdSplit/seqs_fastqc
+
+Warning: FastQC files for reverse reads in run RunX_1 not found. Looked for:
+/autofs/scratch/andile/RunX_1/R2split
+/autofs/scratch/andile/RunX_1/R4split
+/autofs/scratch/andile/RunX_1/revSplit
+
+Warning: FastQC files for forward reads in run RunX_1b not found. Looked for:
+/autofs/scratch/andile/RunX_1b/R1split/seqs_fastqc
+/autofs/scratch/andile/RunX_1b/fwdSplit/seqs_fastqc
+
+Warning: FastQC files for reverse reads in run RunX_1b not found. Looked for:
+/autofs/scratch/andile/RunX_1b/R2split
+/autofs/scratch/andile/RunX_1b/R4split
+/autofs/scratch/andile/RunX_1b/revSplit
+
+Report created at /autofs/scratch/andile/REPORT/Report.html

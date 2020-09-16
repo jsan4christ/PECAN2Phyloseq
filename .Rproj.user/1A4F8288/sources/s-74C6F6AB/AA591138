@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1600224682761.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1088155630",
+    "id" : "AA591138",
+    "lastKnownWriteTime" : 1600225932,
+    "last_content_update" : 1600225932552,
+    "path" : "~/temp/Data_Analysis/Andile/PECAN2Phyloseq/process.R",
+    "project_path" : "process.R",
+    "properties" : {
+        "cursorPosition" : "67,43",
+        "scrollLine" : "43"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

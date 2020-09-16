@@ -1,0 +1,105 @@
+
+R version 3.4.0 (2017-04-21) -- "You Stupid Darkness"
+Copyright (C) 2017 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> 
+> 
+> library("dada2")
+Loading required package: Rcpp
+> packageVersion("dada2")
+[1] ‘1.6.0’
+> path<-getwd()
+> 
+> ## list all of the files matching the pattern
+> tables<-list.files(path, pattern="-dada2_abundance_table.rds", full.names=TRUE)
+> stats<-list.files(path, pattern="-dada2_part1_stats.txt", full.names=TRUE)
+> 
+> ## get the run names using splitstring on the tables where - exists
+> sample.names <- sapply(strsplit(basename(tables), "-"), `[`, 1)
+> ##sample.names
+> ##names(tables) <- sample.names
+> 
+> runs <- vector("list", length(sample.names))
+> names(runs) <- sample.names
+> for(run in tables) {
++   cat("Reading in:", run, "
++ ")
++   runs[[run]] <- readRDS(run)
++ }
+Reading in: /autofs/scratch/andile/andile_74139065_6-dada2_abundance_table.rds 
+Reading in: /autofs/scratch/andile/andile_74967893_5-dada2_abundance_table.rds 
+Reading in: /autofs/scratch/andile/andile_AubRun3_4-dada2_abundance_table.rds 
+Reading in: /autofs/scratch/andile/andile_Jenn_3-dada2_abundance_table.rds 
+Reading in: /autofs/scratch/andile/andile_runN_2-dada2_abundance_table.rds 
+Reading in: /autofs/scratch/andile/andile_RunX_1-dada2_abundance_table.rds 
+Reading in: /autofs/scratch/andile/andile_RunX_1b-dada2_abundance_table.rds 
+> 
+> runstats <- vector("list", length(sample.names))
+> names(runstats) <- sample.names
+> for(run in stats) {
++   cat("Reading in:", run, "
++ ")
++   runstats[[run]] <- read.delim(run, )
++ }
+Reading in: /autofs/scratch/andile/andile_74139065_6-dada2_part1_stats.txt 
+Reading in: /autofs/scratch/andile/andile_74967893_5-dada2_part1_stats.txt 
+Reading in: /autofs/scratch/andile/andile_AubRun3_4-dada2_part1_stats.txt 
+Reading in: /autofs/scratch/andile/andile_Jenn_3-dada2_part1_stats.txt 
+Reading in: /autofs/scratch/andile/andile_runN_2-dada2_part1_stats.txt 
+Reading in: /autofs/scratch/andile/andile_RunX_1-dada2_part1_stats.txt 
+Reading in: /autofs/scratch/andile/andile_RunX_1b-dada2_part1_stats.txt 
+> 
+> unqs <- unique(c(sapply(runs, colnames), recursive=TRUE))
+> n<-sum(unlist(lapply(X=runs, FUN = nrow)))
+> st <- matrix(0L, nrow=n, ncol=length(unqs))
+> rownames(st) <- c(sapply(runs, rownames), recursive=TRUE)
+> colnames(st) <- unqs
+> for(sti in runs) {
++   st[rownames(sti), colnames(sti)] <- sti
++ }
+> st <- st[,order(colSums(st), decreasing=TRUE)]
+> 
+> ##st.all<-mergeSequenceTables(runs)
+> # Remove chimeras
+> seqtab <- removeBimeraDenovo(st, method="consensus", multithread=TRUE)
+> # Assign taxonomy
+> silva <- assignTaxonomy(seqtab, "/local/projects-t3/MSL/16S_dev/gits/IGS_dada2_pipeline/taxonomy/silva_nr_v138_train_set.fa.gz", multithread=TRUE)
+> # Write to disk
+> saveRDS(seqtab, "all_runs_dada2_abundance_table.rds") # CHANGE ME to where you want sequence table saved
+> write.csv(seqtab, "all_runs_dada2_abundance_table.csv", quote=FALSE)
+> write.csv(silva, "silva_classification.csv", quote=FALSE)
+> 
+> fc = file("all_runs_dada2_ASV.fasta")
+> fltp = character()
+> for( i in 1:ncol(seqtab))
++ {
++   fltp <- append(fltp, paste0(">", colnames(seqtab)[i]))
++   fltp <- append(fltp, colnames(seqtab)[i])
++ }
+> writeLines(fltp, fc)
+> rm(fltp)
+> close(fc)
+> 
+> track<-as.matrix(rowSums(seqtab))
+> colnames(track) <- c("nonchimeric")
+> write.table(track, "dada2_part2_stats.txt", quote=FALSE, append=FALSE, sep="	", row.names=TRUE, col.names=TRUE)
+>  
+> 
+> proc.time()
+     user    system   elapsed 
+36929.712   937.018  1032.507 

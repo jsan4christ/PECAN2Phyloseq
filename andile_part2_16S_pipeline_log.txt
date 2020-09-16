@@ -1,0 +1,74 @@
+PIPELINE VERSION: 2.9.4
+This file logs the progress of 7 runs for andile 16S amplicon sequences through the illumina_dada2.pl pipeline.
+---Copying 7 abundance tables to this directory & combining
+Runs:
+74139065_6
+cp 74139065_6/dada2_abundance_table.rds andile_74139065_6-dada2_abundance_table.rds
+cp 74139065_6/dada2_part1_stats.txt andile_74139065_6-dada2_part1_stats.txt
+74967893_5
+cp 74967893_5/dada2_abundance_table.rds andile_74967893_5-dada2_abundance_table.rds
+cp 74967893_5/dada2_part1_stats.txt andile_74967893_5-dada2_part1_stats.txt
+AubRun3_4
+cp AubRun3_4/dada2_abundance_table.rds andile_AubRun3_4-dada2_abundance_table.rds
+cp AubRun3_4/dada2_part1_stats.txt andile_AubRun3_4-dada2_part1_stats.txt
+Jenn_3
+cp Jenn_3/dada2_abundance_table.rds andile_Jenn_3-dada2_abundance_table.rds
+cp Jenn_3/dada2_part1_stats.txt andile_Jenn_3-dada2_part1_stats.txt
+runN_2
+cp runN_2/dada2_abundance_table.rds andile_runN_2-dada2_abundance_table.rds
+cp runN_2/dada2_part1_stats.txt andile_runN_2-dada2_part1_stats.txt
+RunX_1
+cp RunX_1/dada2_abundance_table.rds andile_RunX_1-dada2_abundance_table.rds
+cp RunX_1/dada2_part1_stats.txt andile_RunX_1-dada2_part1_stats.txt
+RunX_1b
+cp RunX_1b/dada2_abundance_table.rds andile_RunX_1b-dada2_abundance_table.rds
+cp RunX_1b/dada2_part1_stats.txt andile_RunX_1b-dada2_part1_stats.txt
+---Performing chimera removal on merged tables and classifying amplicon sequence variants (ASVs)
+PIPELINE VERSION: 2.9.4
+This file logs the progress of 7 runs for andile 16S amplicon sequences through the illumina_dada2.pl pipeline.
+---Copying 7 abundance tables to this directory & combining
+Runs:
+74139065_6
+cp 74139065_6/dada2_abundance_table.rds andile_74139065_6-dada2_abundance_table.rds
+cp 74139065_6/dada2_part1_stats.txt andile_74139065_6-dada2_part1_stats.txt
+74967893_5
+cp 74967893_5/dada2_abundance_table.rds andile_74967893_5-dada2_abundance_table.rds
+cp 74967893_5/dada2_part1_stats.txt andile_74967893_5-dada2_part1_stats.txt
+AubRun3_4
+cp AubRun3_4/dada2_abundance_table.rds andile_AubRun3_4-dada2_abundance_table.rds
+cp AubRun3_4/dada2_part1_stats.txt andile_AubRun3_4-dada2_part1_stats.txt
+Jenn_3
+cp Jenn_3/dada2_abundance_table.rds andile_Jenn_3-dada2_abundance_table.rds
+cp Jenn_3/dada2_part1_stats.txt andile_Jenn_3-dada2_part1_stats.txt
+runN_2
+cp runN_2/dada2_abundance_table.rds andile_runN_2-dada2_abundance_table.rds
+cp runN_2/dada2_part1_stats.txt andile_runN_2-dada2_part1_stats.txt
+RunX_1
+cp RunX_1/dada2_abundance_table.rds andile_RunX_1-dada2_abundance_table.rds
+cp RunX_1/dada2_part1_stats.txt andile_RunX_1-dada2_part1_stats.txt
+RunX_1b
+cp RunX_1b/dada2_abundance_table.rds andile_RunX_1b-dada2_abundance_table.rds
+cp RunX_1b/dada2_part1_stats.txt andile_RunX_1b-dada2_part1_stats.txt
+---Performing chimera removal on merged tables and classifying amplicon sequence variants (ASVs)
+---Merged, chimera-removed abundance tables written to all_runs_dada2_abundance_table.csv
+---ASVs classified via silva written to silva_classification.csv
+---ASVs classified via RDP written to rdp_classification.csv
+---Final ASVs written to all_runs_dada2_ASV.fasta for classification via PECAN
+---dada2 completed successfully
+---Renaming dada2 files for project
+mv all_runs_dada2_abundance_table.csv andile_all_runs_dada2_abundance_table.csv
+---Renaming SILVA classification file for project
+mv silva_classification.csv andile_silva_classification.csv
+---Classifying ASVs with V3V4 PECAN models (located in /local/projects-t2/jholm/PECAN/v1.0/V3V4/merged_models/)
+---Renaming ASVs in FASTA, abundance tables, and SILVA classification key.
+python2 /local/projects-t3/MSL/16S_dev/gits/IGS_dada2_pipeline/scripts/rename_asvs.py -p andile -c andile_silva_classification.csv --pecan andile_MC_order7_results.txt
+---Creating count table with SILVA classifications only
+---Creating count table with PECAN classifications
+---Assigning CSTs with Valencia
+---Creating count table with SILVA+PECAN classifications
+	/local/projects-t3/MSL/16S_dev/gits/IGS_dada2_pipeline/report/report16s.sh '/autofs/scratch/andile' --runs 74139065_6 74967893_5 AubRun3_4 Jenn_3 runN_2 RunX_1 RunX_1b
+---Final files succesfully produced!
+Final merged read count table: andile_all_runs_dada2_abundance_table_PECAN_taxa-merged.csv
+Final ASV table with taxa: andile_all_runs_dada2_abundance_table_PECAN_asvs+taxa.csv
+Final ASV count table: andile_all_runs_dada2_abundance_table.csv
+ASV sequences: all_runs_dada2_ASV.fasta
